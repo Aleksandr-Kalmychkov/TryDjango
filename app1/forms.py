@@ -2,7 +2,7 @@ from django import forms
  
 class UserForm(forms.Form):
     nameOfEvent = forms.CharField(label="Наименование мероприятия:")
-    socialMediaLinks = forms.URLField(label="Ссылки на соц. сети:", widget=forms.Textarea)
+    socialMediaLinks = forms.URLField(label="Ссылки на соц. сети:")
     name = forms.CharField(label="Ваше имя:")
     phoneNumber = forms.CharField(label="Номер телефона:")
     email = forms.EmailField(label="Электронная почка:")

@@ -5,28 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .myfield{
-            border:1px solid #ccc; 
-            border-radius:5px;
-            height:25px;
-            width:200px;
-            margin: 10px 10px 10px 0;
+        .box
+        {
+            margin: 2% 7% 2% 7%;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            background: #ffffff;
+            justify-content: center;
+        }
+        .label
+        {
+            width: 300px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            text-align: center;
+            font-size: larger;
+            font-family: 'Open Sans',sans-serif !important;
+        }
+        .field
+        {
+            text-align: center;
+            margin: 5px;
         }
     </style>
 </head>
-<body>
+<body style="background: #949494;">
     {% load static %}
-    <a href="https://tplus.pro/" target="_blank"><img src="{% static 'app1/TPlusLogo.png' %}"alt="Tplus" style="height:60px;"></a>
+    <a href="https://tplus.pro/" target="_blank"><img src="{% static 'app1/TPlusLogo.png' %}"alt="Tplus" style="height:60px; margin: auto; display: block;"></a>
     
-    <form method="POST">
+    <form method="POST" class="box">
+        <h1 style="font-family: 'Open Sans',sans-serif !important; text-align: center;">
+            Форма для спонсирования мероприятия
+        </h1>
+        <hr>
+        <br>
         {% csrf_token %}
         {% for field in form %}
-        <div style="text-align: center; margin-bottom: 25px; font-size:x-large; font-family: Arial, Helvetica, sans-serif;">
-            {{field.label_tag}}
-            <div style="margin: 10px;">{{field}}</div>
+        <div class="label">
+            <div style="text-align: left;">
+                {{field.label_tag}}
+            </div>
+            <div class="field">{{field}}</div>
         </div>
         {% endfor %}
    
-    <input type="submit" value="Send" style="margin: auto; display: block; height: 50px; width: 200px;">
+    <input type="submit" value="Send" style="margin: 2% auto; display: block; height: 50px; width: 200px;">
 </body>
 </html>

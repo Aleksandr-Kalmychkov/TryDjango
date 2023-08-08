@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Заявка Tplus</title>
+</head>
+<body>
+    {% load static %}
+    <a href="https://tplus.pro/" target="_blank"><img src="{% static 'app1/TPlusLogo.png' %}"alt="Tplus" style="height:60px;"></a>
+    
+    <form method="POST">
+        {% csrf_token %}
+    
+    <table>
+        {{ form }}
+    </table>
+    <input type="submit" value="Send" >
+</body>
+</html>

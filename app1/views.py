@@ -5,9 +5,7 @@ from django.http import HttpResponse
  
 def index(request):
     if request.method == "POST":
-        name = request.POST.get("name")
-        age = request.POST.get("age")
-        return HttpResponse(f"<h2>Привет, {name}, твой возраст: {age}</h2>")
+        return HttpResponse(f"<h2>Заявка отправлена!</h2>")
     else:
         userform = UserForm()
         return render(request, "app1/main_template.html", {"form": userform})

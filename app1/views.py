@@ -33,4 +33,4 @@ def index(request):
         return HttpResponse(f"<h2>Заявка отправлена! Идентификатор: {id}</h2>")
     else:
         userform = UserForm()
-        return render(request, "app1/main_template.html", {"form": userform})
+        return render(request, "app1/form.html", {"form": userform})

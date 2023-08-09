@@ -1,20 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Заявка Tplus</title>
-</head>
-<body>
-    {% load static %}
-    <a href="https://tplus.pro/" target="_blank"><img src="{% static 'app1/TPlusLogo.png' %}"alt="Tplus" style="height:60px;"></a>
-    
-    <form method="POST">
-        {% csrf_token %}
-    
-    <table>
-        {{ form }}
-    </table>
-    <input type="submit" value="Send" >
-</body>
-</html>
+{% extends 'app1/main_template.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<form method="post" novalidate>
+    {% csrf_token %}
+    <div class="form-row">
+        <div class="form-group col-md-6 mb-0">
+          {{ form.nameOfEvent|as_crispy_field }}
+        </div>
+        <div class="form-group col-md-6 mb-0">
+          {{ form.name|as_crispy_field }}
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-12 mb-0">
+          {{ form.socialMediaLinks|as_crispy_field }}
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6 mb-0">
+          {{ form.phoneNumber|as_crispy_field }}
+        </div>
+        <div class="form-group col-md-6 mb-0">
+          {{ form.email|as_crispy_field }}
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6 mb-0">
+          {{ form.dateOfEvent|as_crispy_field }}
+        </div>
+        <div class="form-group col-md-6 mb-0">
+          {{ form.city|as_crispy_field }}
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-6 mb-0">
+          {{ form.countOfClasses|as_crispy_field }}
+        </div>
+        <div class="form-group col-md-6 mb-0">
+          {{ form.countOfWinners|as_crispy_field }}
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-12 mb-0">
+          {{ form.fileOfRules|as_crispy_field }}
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-12 mb-0">
+          {{ form.deliveryAddress|as_crispy_field }}
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-12 mb-0">
+          {{ form.comment|as_crispy_field }}
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Отправить</button>
+</form>
+{% endblock content %}
